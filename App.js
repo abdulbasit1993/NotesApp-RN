@@ -26,12 +26,11 @@ export default function App() {
   if (!user.name) return <Intro onFinish={findUser} />;
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{headerTitle: '', headerTransparent: true}}>
         <Stack.Screen component={renderNoteScreen} name="NoteScreen" />
         <Stack.Screen component={NoteDetail} name="NoteDetail" />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-// Watched until 9:18 --> https://youtu.be/NTmPsRsrHQQ?list=PLaAoUJDWH9WonhD-ZLyYber1O7LnoI62w&t=558

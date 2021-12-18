@@ -123,5 +123,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 15,
     bottom: 50,
+    zIndex: 1,
   },
 });
