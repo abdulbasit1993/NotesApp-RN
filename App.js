@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import Intro from './src/Screens/Intro';
 import NoteScreen from './src/Screens/NoteScreen';
 import NoteDetail from './src/components/NoteDetail';
+import NoteProvider from './src/contexts/NoteProvider';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,11 +27,17 @@ export default function App() {
   if (!user.name) return <Intro onFinish={findUser} />;
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{headerTitle: '', headerTransparent: true}}>
-        <Stack.Screen component={renderNoteScreen} name="NoteScreen" />
-        <Stack.Screen component={NoteDetail} name="NoteDetail" />
-      </Stack.Navigator>
+      <NoteProvider>
+        <Stack.Navigator
+          screenOptions={{
+            headerTitle: '',
+            headerTransparent: true,
+            headerShadowVisible: false,
+          }}>
+          <Stack.Screen component={renderNoteScreen} name="NoteScreen" />
+          <Stack.Screen component={NoteDetail} name="NoteDetail" />
+        </Stack.Navigator>
+      </NoteProvider>
     </NavigationContainer>
   );
 }
