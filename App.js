@@ -6,6 +6,7 @@ import Intro from './src/Screens/Intro';
 import NoteScreen from './src/Screens/NoteScreen';
 import NoteDetail from './src/components/NoteDetail';
 import NoteProvider from './src/contexts/NoteProvider';
+import SplashScreen from 'react-native-splash-screen';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ export default function App() {
   };
 
   useEffect(() => {
+    SplashScreen.hide();
     findUser();
   }, []);
 
